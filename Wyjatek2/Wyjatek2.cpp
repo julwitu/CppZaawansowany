@@ -145,3 +145,15 @@ PositiveNumber& PositiveNumber::operator=(const PositiveNumber& second)
 	this->setValue(second.getValue());
 	return *this;
 }
+
+PositiveNumber operator+(double first, const PositiveNumber& second) {
+	PositiveNumber tmp;
+	tmp.setValue(second.getValue() + first);
+	return tmp;
+}
+
+PositiveNumber operator-(double first, const PositiveNumber& second) {
+	PositiveNumber tmp;
+	tmp.setValue(first -second.getValue() );
+	return tmp;
+}

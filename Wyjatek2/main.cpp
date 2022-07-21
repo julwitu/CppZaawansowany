@@ -60,7 +60,7 @@ int main()
             std::cout << "Wynik odejmowania(operator -): " << n3.getValue() << std::endl;
 
         }
-        catch (std::string error) {
+        catch (std::string& error) {
             std::cout << error << std::endl;
         }
     }

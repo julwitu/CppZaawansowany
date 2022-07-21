@@ -1,0 +1,8 @@
+﻿  TemplateZad1.cpp
+C:\Users\jwitu\OneDrive\Pulpit\SDA\CppZaawansowany\TemplateZad1\TemplateZad1.cpp(23,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jwitu\OneDrive\Pulpit\SDA\CppZaawansowany\TemplateZad1\TemplateZad1.cpp(67): message : see reference to function template instantiation 'T max<int>(T *,const unsigned int)' being compiled
+          with
+          [
+              T=int
+          ]
+  TemplateZad1.vcxproj -> C:\Users\jwitu\OneDrive\Pulpit\SDA\CppZaawansowany\x64\Debug\TemplateZad1.exe

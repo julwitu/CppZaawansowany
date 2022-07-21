@@ -28,7 +28,7 @@ public:
 	PositiveNumber& operator+(int number);
 	PositiveNumber& operator-(double number);
 	PositiveNumber& operator-(float number);
-	PositiveNumber& operator-(int number);
+	PositiveNumber& operator-(int number); // za pomoca referencji bo wolamy funkcje na rzecz obiektu do ktorego mamy dostep
 	//oraz operator + i - poza klasa
 	PositiveNumber& operator=(const PositiveNumber& second);
 
@@ -36,3 +36,7 @@ private:
 	double _value;
 
 };
+
+PositiveNumber operator+(double first, const PositiveNumber& second); // operator poza klasa nie moze zwrocic referencji!
+
+PositiveNumber operator-(double first, const PositiveNumber& second);
