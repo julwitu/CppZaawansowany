@@ -13,7 +13,7 @@ public:
 		// _data = nullptr; //tutaj nie potrzeba bo po delete juz obiekt naszej klasy nie istnieje i nie ma mozliwosci odwolac sie do taj pamieci niechcacy
 	}
 
-	T operator*(){
+	T& operator*(){
 		return *_data;
 	}
 
@@ -24,3 +24,4 @@ public:
 private:
 	T* _data;
 };
+
