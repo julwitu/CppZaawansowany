@@ -11,25 +11,37 @@
 #include <string>
 #include <algorithm>
 
-void lettersCounter( std::map<char, int>& letters,  std::string phrase) {
-    remove(phrase.begin(), phrase.end(), ' ');
-    for (int i = 0; i < phrase.size(); i++) {
-        letters.at(phrase[i])++;
+void lettersToLower(std::string& str) {
+    for (auto it = str.begin(); it != str.end(); ++it) {
+        if (*it >= 65 && *it <= 90) {
+            *it += 32;
+        }
     }
 }
 
-void printMap(std::map<char, int>& letters) {
-    for (const auto & pair : letters) {
-       if (pair.second > 0) {
-            std::cout << pair.first << " - " << pair.second << std::endl;
-       }
+void lettersCounter(std::map <char, int>& letters, std::string phrase) {
+    for (auto it = phrase.begin(); it != phrase.end(); ++it) {
+        lettersToLower(phrase);
+        if ((*it >= 65 && *it <= 90) || (*it >= 97 && *it <= 122)) {
+            if (letters.find(*it) != letters.end()) {
+                letters.at(*it)++;
+            }
+            else {
+                letters.insert({ *it, 1 });
+            }
+        }
     }
 }
+
+    void printMap(std::map <char, int>&letters) {
+        for (auto it = letters.begin(); it != letters.end(); ++it) {
+            std::cout << it->first << " - " << it->second << std::endl;
+        }
+    }
 
 int main()
 {
     std::map<char, int> letters;
-    letters.insert({ { 'a', 0 }, { 'b', 0 }, { 'c', 0 }, { 'd', 0 }, { 'e', 0 }, { 'f', 0 }, { 'g', 0 }, { 'h', 0 }, { 'i', 0 }, { 'j', 0 }, { 'k', 0 }, { 'l', 0 }, { 'm', 0 }, { 'n', 0 }, { 'o', 0 }, { 'p', 0 }, { 'r', 0 }, { 's', 0 }, { 't', 0 }, { 'u', 0 }, { 'w', 0 }, { 'x', 0 }, { 'y', 0 }, { 'z', 0 } });
 
     lettersCounter(letters, "ala ma kota a kot ma ale");
     printMap(letters);

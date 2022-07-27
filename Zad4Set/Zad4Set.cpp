@@ -2,22 +2,22 @@
 #include <set>
 #include <string>
 //Za pomoc¹ std::set sprawdz czy w podanym ³añcuchu znaków wystêpuj¹ wszystkie litery alfabetu.
-bool containsAllAlphabet(std::set<std::string>& expression) {
-	std::string alphabet = "abcdefghijklmnoprstuwxyz";
-	if (expression.find(alphabet) != expression.end()) {
-		return true;
+bool containsAllAlphabet(std::string str) {
+	std::set <char> alphabetCheck;
+	for (std::string::iterator it = str.begin(); it != str.end(); ++it) {
+		if (*it >= 65 && *it <= 90) {
+			*it += 32;
+		}
+		if ((*it >= 65 && *it <= 90) || (*it >= 97 && *it <= 122)) {
+			alphabetCheck.insert(*it);
+		}
 	}
-	return false;
+	return alphabetCheck.size() == 24;
 }
 
 int main()
 {
-	std::set<std::string> exp1 = { "alphabet" };
-	std::set<std::string> exp2 = { "abcdefghijklmnoprstuwxyz" };
-	std::set<std::string> exp3 = { "abcdefghijklmnoprstuwzxy" };
-
-	std::cout << "Set 1: " << std::boolalpha << containsAllAlphabet(exp1) << std::endl;
-	std::cout << "Set 2: " << std::boolalpha << containsAllAlphabet(exp2) << std::endl;
-	std::cout << "Set 3: " << std::boolalpha << containsAllAlphabet(exp3) << std::endl;
+	std::cout << std::boolalpha << containsAllAlphabet("Ala ma kota a kot ma ale") << std::endl;
+	std::cout << containsAllAlphabet("abcdefghijklmnoprstuwxyz");
 
 }
